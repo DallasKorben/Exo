@@ -13,6 +13,8 @@ class Carte:
     def affiche_hauteur(self):
         return self.hauteur
 
+    def tirer(self):
+        print(self.hauteur + " de " + self.couleur)
 
 class Main:
 
