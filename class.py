@@ -60,3 +60,29 @@ class Main:
             première_carte = 0
         for x in range(première_carte, len(self.cartes)):
             self.cartes[x].tirer()
+
+
+class Paquet:
+
+    def __init__(self):
+        ''' On crée le paquet dans l'ordre '''
+        self.paquet = []
+        for couleur in couleurs:
+            for hauteur in hauteur_cartes:
+                self.paquet.append(Carte(couleur, hauteur))
+
+    def mélanger(self):
+        ''' Mélanger le paquet, python a pour cela une méthode dans la bibliothèque random '''
+        random.shuffle(self.paquet)
+
+    def donne(self):
+        ''' Extrait la première carte du paquet '''
+        une_carte = self.paquet.pop()
+        return une_carte
+
+    def __str__(self):
+        compo_paquet = ""
+        for carte in self.paquet:
+            compo_paquet += " " + carte.__str__()
+
+        return "Le paquet contient " + compo_paquet
